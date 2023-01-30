@@ -1,4 +1,4 @@
-# 缘由
+# 缘由1
 前两个星期，无意中在小米有品的商店中看到一款[电子墨水屏的日历](https://www.xiaomiyoupin.com/detail?gid=120143&spmref=YouPinPC.$SearchFilter$1.search_list.1.66578030)，如下图。觉得挺有意思。刚好新冠疫情前期时，在家闲得慌也用微雪的墨水屏做过一个[展示COVID数据的可穿戴设备外挂](https://github.com/breakstring/covid19_e-paper)。
 简单评估了下觉得这玩意儿也不难，那就自己做一个毒鸡汤电子墨水屏日历吧。
 
