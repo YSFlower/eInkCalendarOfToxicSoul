@@ -877,15 +877,16 @@ void setup()
 
   qwAPI.Config(QWEATHER_API_KEY);
 
-  IPAPIResponse ipAPIResponse = GetIPInfomation();
-  if(ipAPIResponse.status != "success"){
-    Serial.printf("Get ip information failed:%s\n Restarting......\n",ipAPIResponse.message);
-    esp_restart();
-  }
-  Serial.printf("IP: %s\n", ipAPIResponse.query.c_str());
-  Serial.printf("City: %s\n", ipAPIResponse.city.c_str());
+  // IPAPIResponse ipAPIResponse = GetIPInfomation();
+  // if(ipAPIResponse.status != "success"){
+  //   Serial.printf("Get ip information failed:%s\n Restarting......\n",ipAPIResponse.message);
+  //   esp_restart();
+  // }
+  // Serial.printf("IP: %s\n", ipAPIResponse.query.c_str());
+  // Serial.printf("City: %s\n", ipAPIResponse.city.c_str());
 
-  gi = qwAPI.GetGeoInfo(ipAPIResponse.city, ipAPIResponse.regionName);
+  // gi = qwAPI.GetGeoInfo(ipAPIResponse.city, ipAPIResponse.regionName);
+  gi = qwAPI.GetGeoInfo("西安", "陕西");
   Serial.printf("从和风天气中取到匹配城市: %s\n", gi.name.c_str());
 
   setupDateTime();

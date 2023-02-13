@@ -11,11 +11,13 @@ IPAPIResponse GetIPInfomation(String ip, Localization localization)
     response.status = "fail";
 
     String requestUrl = "http://ip-api.com/json/" + ip +"?lang=" + LOCALIZATION[localization] + "&fields=66846719";
+    // String requestUrl ="https://ip.useragentinfo.com/json?";
     Serial.println(requestUrl);
 
     if(httpClient.begin(client,requestUrl))
     {
         u8_t httpCode = httpClient.GET();
+        Serial.printf("weather http request return code : %d\n", httpCode);
         if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY)
         {
             String payload = httpClient.getString();
@@ -26,8 +28,10 @@ IPAPIResponse GetIPInfomation(String ip, Localization localization)
 
             response.query = doc["query"].as<String>();
             response.status = doc["status"].as<String>();
+            Serial.println(response.status);
 
             if(response.status == "success"){
+                Serial.println(__LINE__);
                 response.continent = doc["continent"].as<String>();
                 response.continentCode = doc["continentCode"].as<String>();
                 response.country = doc["country"].as<String>();
